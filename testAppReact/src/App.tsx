@@ -1,22 +1,30 @@
 //import Alert from "./components/Alert";
 //import Button from "./components/Button/Button";
-import { useState } from "react";
+ import { useState } from "react";
 // import ListGroup from "./components/ListGroup";
 // import { FaHeart } from "react-icons/fa";
-import Like from "./components/Like";
-import Message from "./components/Message";
-import UpdateButton from "./components/UpdateButton";
-import "./App.css";
-import Navbar from "./components/Exercise/Navbar";
-import Cart from "./components/Exercise/Cart";
-import Game from "./components/Exercise/Game";
-import ExpandableText from "./components/ExpandableText";
-
+// import Like from "./components/Like";
+// import Message from "./components/Message";
+// import UpdateButton from "./components/UpdateButton";
+// import "./App.css";
+// import Navbar from "./components/Exercise/Navbar";
+// import Cart from "./components/Exercise/Cart";
+// import Game from "./components/Exercise/Game";
+// import ExpandableText from "./components/ExpandableText";
+import ExpenseList from "./components/ExpenseTracker/ExpenseList";
+import Form from "./components/Forms/Form";
+import FormUseForm from "./components/Forms/FormUseForm";
+import FormUseState from "./components/Forms/FormUseState";
 function App() {
-  const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+  // const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+
+  const [expenses, setExpenses] = useState([
+    { id: 1, des: "Milk", amount: 5, category: "Groccery" },
+    { id: 2, des: "Honey", amount: 12, category: "Groccery" },
+  ]);
   return (
-    <div className="d">
-      <Like onClick={() => console.log("klik")} />
+    <div>
+      {/* <Like onClick={() => console.log("klik")} />
       <Message />
       <Message />
       <Message />
@@ -43,7 +51,12 @@ function App() {
         labore nesciunt excepturi suscipit ducimus perspiciatis debitis vitae et
         laboriosam minus quasi? Explicabo et libero dignissimos nihil tempora
         sint ea voluptate aut voluptatum.
-      </ExpandableText>
+      </ExpandableText> */}
+
+      {/* <Form/> */}
+      {/* <FormUseState/> */}
+      
+      <ExpenseList items={expenses} onDelete={(id) => setExpenses(expenses.filter((i)=>(i.id !== id)))}/>
     </div>
   );
 }
